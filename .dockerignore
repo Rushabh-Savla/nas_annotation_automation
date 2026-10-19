@@ -1,0 +1,48 @@
+# Secrets and local configurations
+.env
+config.env
+secrets/
+*.key
+*.pem
+*.token
+
+# Databases and SQLite state
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# Logs, temporary files, and backups
+logs/
+*.log
+backups/
+tmp/
+*.tmp
+
+# Staging, local images, workspaces, and annotation outputs
+staging/
+local_images/
+annotations_output/
+nas_annotation_workspace/
+workspace/
+current/
+batches/
+
+# Python cache and environments
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.pytest_cache/
+
+# Git and OS artifacts
+.git
+.gitignore
+.DS_Store
+Thumbs.db
+
