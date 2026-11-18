@@ -1,8 +1,8 @@
-[submodule "admin_webpage"]
-	path = admin_webpage
-	url = https://github.com/Rushabh-Savla/admin_webpage.git
+[submodule "admin-web"]
+	path = admin-web
+	url = https://github.com/Rushabh-Savla/admin-web.git
 	branch = developing
-[submodule "annotator_app"]
-	path = annotator_app
-	url = https://github.com/Rushabh-Savla/annotator_app.git
+[submodule "local-app"]
+	path = local-app
+	url = https://github.com/Rushabh-Savla/local-app.git
 	branch = developing
