@@ -1,16 +1,5 @@
 # Unified NAS Data Annotation Platform
 
-**GitHub Repository:** [https://github.com/Rushabh-Savla/nas_annotation_automation](https://github.com/Rushabh-Savla/nas_annotation_automation)
-
-A centralized, distributed image annotation and dataset management platform designed for machine learning teams working with remote Network Attached Storage (NAS).
-
-The platform bridges centralized storage and multi-computer annotation teams by providing:
-- **Central Authority & Coordination**: Web platform and PostgreSQL system of record managing user roles, dataset catalogs, image assignments, and atomic single-annotator image leases.
-- **Background NAS Synchronization**: Durable queue-driven worker running transfers via Rclone (SFTP, SMB, WebDAV) without blocking web requests.
-- **Client Desktop GUI**: Dedicated cross-platform annotator desktop app for checking out image batches, integrating with [X-AnyLabeling](https://github.com/CVHub520/X-AnyLabeling), validating annotation JSON, and uploading completed work.
-
----
-
 ## 1. System Architecture
 
 ```text
