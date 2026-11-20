@@ -281,6 +281,11 @@ ROOT="$HOME/nas_annotation_workspace"
   run_gui.bat
   ```
 
+#### Create 1-Click Desktop Icon (Optional)
+To add a launcher icon to your Desktop and Applications/Start Menu:
+- **Linux / macOS:** `cd local-app && ./setup_desktop.sh`
+- **Windows:** Double-click `setup_desktop.bat` in the `local-app` folder.
+
 Log in using the annotator credentials created in the central dashboard.
 
 ---
