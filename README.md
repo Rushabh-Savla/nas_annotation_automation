@@ -84,8 +84,13 @@ nas_annotation_automation/
     ├── .env.example        # Workstation configuration template
     ├── desktop_app.py      # Tkinter desktop GUI for annotators
     ├── annotator_agent/    # Client API client, token handling, local SQLite cache
-    ├── run_gui.sh          # 1-Click GUI launcher for Linux & macOS
-    ├── run_gui.bat         # 1-Click GUI launcher for Windows
+    ├── run_gui.sh          # 1-Click GUI launcher for Linux & macOS (auto-resolving)
+    ├── run_gui.bat         # 1-Click GUI launcher for Windows (auto-resolving)
+    ├── setup_desktop.sh    # 1-Click Desktop Icon Installer for Linux & macOS
+    ├── setup_desktop.bat   # 1-Click Desktop Shortcut Installer for Windows
+    ├── setup_desktop_icon.py # Cross-platform desktop shortcut generator
+    ├── AnnotationApp.desktop # Linux desktop entry launcher specification
+    ├── assets/             # Workstation logos and desktop icons (.png, .ico)
     ├── requirements_agent.txt # Workstation dependencies (httpx, xanylabeling, etc.)
     └── README.md           # Detailed workstation setup & usage documentation
 ```
@@ -271,20 +276,43 @@ ROOT="$HOME/nas_annotation_workspace"
 > **Important (Linux Path Permissions):**
 > Always set `ROOT` inside your own user home directory (e.g. `$HOME/nas_annotation_workspace` or `/home/<username>/nas_annotation_workspace`). Never use `/home/annotator/...` unless your Linux user account is named `annotator`, otherwise you will encounter `PermissionError: [Errno 13] Permission denied`.
 
-### 6.3 Launch the Desktop GUI
+### 6.3 1-Click Desktop Icon Installation (Recommended)
+
+Set up a branded desktop shortcut that allows annotators to open the application with a single click from their **Desktop** or **Applications/Start Menu**. The launcher includes path auto-discovery so it works regardless of where the shortcut is copied.
+
+#### Linux / macOS
+```bash
+cd local-app
+chmod +x setup_desktop.sh run_gui.sh
+./setup_desktop.sh
+```
+- Installs `AnnotationApp.desktop` to `~/Desktop` and `~/.local/share/applications` with custom logo branding ([assets/app_icon.png](file:///D:/EaseMyAi/annotation_automation/nas_annotation_automation/local-app/assets/app_icon.png)).
+- Configures executable permissions and GNOME trust metadata.
+- Double-click the icon on your Desktop to start! *(On GNOME, right-click -> "Allow Launching" if prompted on first run).*
+
+#### Windows
+- **1-Click:** Open File Explorer, go to the `local-app` folder, and **double-click** `setup_desktop.bat`.
+- **Command Line:**
+  ```cmd
+  cd local-app
+  setup_desktop.bat
+  ```
+- Creates a branded shortcut on your **Desktop** (`%USERPROFILE%\Desktop\NAS Annotation Workstation.lnk`) and in your **Start Menu** using [assets/app_icon.ico](file:///D:/EaseMyAi/annotation_automation/nas_annotation_automation/local-app/assets/app_icon.ico).
+
+---
+
+### 6.4 Manual Terminal Launch Options
+
 - **Linux / macOS:**
   ```bash
+  cd local-app
   ./run_gui.sh
   ```
 - **Windows:**
   ```cmd
+  cd local-app
   run_gui.bat
   ```
-
-#### Create 1-Click Desktop Icon (Optional)
-To add a launcher icon to your Desktop and Applications/Start Menu:
-- **Linux / macOS:** `cd local-app && ./setup_desktop.sh`
-- **Windows:** Double-click `setup_desktop.bat` in the `local-app` folder.
 
 Log in using the annotator credentials created in the central dashboard.
 
